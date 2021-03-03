@@ -10,7 +10,7 @@ def analyze(request):
     removepunc = request.POST.get('removepunc', 'off')
     uppercase = request.POST.get('uppercase', 'off')
     newlineremover = request.POST.get('newlineremover', 'off')
-    extraspace = request.POST.get('extraspace', 'off')
+    extraspaceremover = request.POST.get('extraspaceremover', 'off')
 
     if removepunc == "on":
         punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
@@ -30,7 +30,7 @@ def analyze(request):
         params = {'purpose': 'After Analyzing', 'analyzed_text': analyzed}
         djtext = analyzed
 
-    if(extraspace=="on"):
+    if(extraspaceremover=="on"):
         analyzed = ""
         for index, char in enumerate(djtext):
             if not(djtext[index] == " " and djtext[index+1]==" "):
@@ -48,7 +48,7 @@ def analyze(request):
                 pass
         params = {'purpose': 'After Analyzing', 'analyzed_text': analyzed}
 
-    if(removepunc != "on" and newlineremover!="on" and extraspaceremover!="on" and fullcaps!="on"):
+    if(removepunc != "on" and newlineremover!="on" and extraspaceremover!="on" and uppercase!="on"):
         return HttpResponse("please select any operation and try again")
 
     return render(request, 'analyzed.html', params)
