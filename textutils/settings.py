@@ -25,7 +25,7 @@ SECRET_KEY = '_62+qur(*$np*wks#e*8sca&mrby%6dy0ic3u=o65ygmu)q&yd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','textcalculate.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','textinteligence.herokuapp.com']
 
 
 # Application definition
